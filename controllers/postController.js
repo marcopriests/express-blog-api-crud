@@ -1,0 +1,25 @@
+const index = (req, res) => {
+    res.send('Lista dei post')
+}
+
+const show = (req, res) => {
+    res.send('Singolo post')
+}
+
+const store = (req, res) => {
+    res.send('Aggiungo post')
+}
+
+const update = (req, res) => {
+    res.send('Modifico completamente il post')
+}
+
+const modify = (req, res) => {
+    res.send('Modifico parzialmente il post')
+}
+
+const destroy = (req, res) => {
+    res.send('Elimino il post')
+}
+
+module.exports = {index, show, store, update, modify, destroy}
