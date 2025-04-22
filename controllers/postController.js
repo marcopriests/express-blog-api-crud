@@ -1,3 +1,6 @@
+const posts = require('../data/posts.js')
+console.log(posts)
+
 const index = (req, res) => {
     res.send('Lista dei post')
 }
