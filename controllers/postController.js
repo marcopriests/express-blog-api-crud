@@ -1,12 +1,16 @@
 const posts = require('../data/posts.js')
-console.log(posts)
+//console.log(posts)
 
 const index = (req, res) => {
     res.json(posts)
 }
 
 const show = (req, res) => {
-    res.json(posts[req.params.id])
+    const id = parseInt(req.params.id)
+
+    const post = posts.find((post) => post.id === id)
+
+    res.json(post)
 }
 
 const store = (req, res) => {
@@ -22,7 +26,15 @@ const modify = (req, res) => {
 }
 
 const destroy = (req, res) => {
-    res.send('Elimino il post')
+    const id = parseInt(req.params.id)
+
+    const post = posts.find((post) => post.id === id)
+
+    posts.splice(posts.indexOf(post), 1)
+
+    console.log(posts)
+
+    res.status(204)
 }
 
 module.exports = {index, show, store, update, modify, destroy}
