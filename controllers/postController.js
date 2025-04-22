@@ -6,7 +6,7 @@ const index = (req, res) => {
 }
 
 const show = (req, res) => {
-    res.send('Singolo post')
+    res.json(posts[req.params.id])
 }
 
 const store = (req, res) => {
