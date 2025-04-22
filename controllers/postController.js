@@ -10,6 +10,15 @@ const show = (req, res) => {
 
     const post = posts.find((post) => post.id === id)
 
+    if(!post) {
+        res.status(404)
+        return res.json({
+            status: 404,
+            error: 'not found',
+            message: 'Post non trovato'
+        })
+    }
+
     res.json(post)
 }
 
@@ -29,6 +38,15 @@ const destroy = (req, res) => {
     const id = parseInt(req.params.id)
 
     const post = posts.find((post) => post.id === id)
+
+    if(!post) {
+        res.status(404)
+        return res.json({
+            status: 404,
+            error: 'not found',
+            message: 'Post non trovato'
+        })
+    }
 
     posts.splice(posts.indexOf(post), 1)
 
