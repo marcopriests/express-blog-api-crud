@@ -33,6 +33,7 @@ const show = (req, res) => {
 
 const store = (req, res) => {
     res.send('Aggiungo post')
+    console.log(req.body)
 }
 
 const update = (req, res) => {
