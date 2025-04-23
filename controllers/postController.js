@@ -32,8 +32,31 @@ const show = (req, res) => {
 }
 
 const store = (req, res) => {
-    res.send('Aggiungo post')
-    console.log(req.body)
+    //creo un nuovo id
+    const newId = posts[posts.length - 1].id + 1
+
+    //destrutturo il corpo della richiesta
+    const {title, content, image, tags} = req.body
+
+    //creo un nuovo post con le informazioni recuperate dal corpo della richiesta
+    const newPost = {
+        id: newId,
+        title,
+        content,
+        image,
+        tags
+    }
+
+    //aggiungo il nuovo post nell'array di oggetti
+    posts.push(newPost)
+
+    //controllo
+    console.log(posts)
+
+    //restituisco lo status e il nuovo post
+    res.status(201)
+    res.json(newPost)
+
 }
 
 const update = (req, res) => {
