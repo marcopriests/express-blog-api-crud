@@ -3,7 +3,6 @@ const posts = require('../data/posts.js')
 
 const index = (req, res) => {
     const tag = req.query.tag
-    console.log(tag)
 
     let filteredPosts = posts
 
@@ -49,9 +48,6 @@ const store = (req, res) => {
 
     //aggiungo il nuovo post nell'array di oggetti
     posts.push(newPost)
-
-    //controllo
-    console.log(posts)
 
     //restituisco lo status e il nuovo post
     res.status(201)
@@ -101,8 +97,6 @@ const destroy = (req, res) => {
     }
 
     posts.splice(posts.indexOf(post), 1)
-
-    console.log(posts)
 
     res.status(204)
 }
