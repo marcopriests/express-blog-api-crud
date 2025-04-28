@@ -4,6 +4,8 @@ const posts = require('../data/posts.js')
 const index = (req, res) => {
     const tag = req.query.tag
 
+    errorTester.get()
+
     let filteredPosts = posts
 
     if(tag) {
