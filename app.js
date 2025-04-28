@@ -3,6 +3,7 @@ const app = express()
 const port = 3000
 
 const notFound = require('./middlewares/notFound.js')
+const errorsHandler = require('./middlewares/errorsHandler.js')
 const postRouter = require('./routers/postRouter.js')
 
 app.use(express.json())
@@ -14,6 +15,7 @@ app.get('/', (req, res) => {
 })
 
 app.use(notFound)
+app.use(errorsHandler)
 
 app.listen(port, () => {
     console.log('Server in ascolto alla porta ' + port)
